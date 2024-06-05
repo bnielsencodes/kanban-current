@@ -52,6 +52,33 @@ const config: Config = {
       // => @media (min-width: 1440px) { ... }
       xl: "1440px",
     },
+    extend: {
+      animation: {
+        wave: "wave 5s linear infinite",
+      },
+      borderColor: {
+        input: "rgba(130, 143, 163, 0.25)",
+      },
+      boxShadow: {
+        boardsModal: "0 10px 20px 0px rgba(54, 78, 126, 0.25)",
+        taskCard: "0 10px 20px 0px rgba(54, 78, 126, 0.1015)",
+        loader: "0 5px 12px rgba(0, 0, 0, 0.15)",
+        loaderInset: "0 0 30px 4px rgba(0, 0, 0, 0.5) inset",
+      },
+      backgroundImage: {
+        cross: "url('/assets/icon-cross.svg')",
+      },
+      fontFamily: {
+        sans: ["var(--font-plus-jakarta-sans)"],
+      },
+      placeholderColor: {
+        dark: "rgba(0, 1, 18, 0.25)",
+        light: "rgba(255, 255, 255, 0.25)",
+      },
+      transitionProperty: {
+        width: "width",
+      },
+    },
   },
   plugins: [],
 };
