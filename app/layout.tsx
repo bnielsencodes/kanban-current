@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -24,6 +25,12 @@ export const metadata: Metadata = {
   ],
 };
 
+const plus_jakarta_sans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-plus-jakarta-sans",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,6 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      className={`${plus_jakarta_sans.variable}`}
       lang="en"
       style={{ scrollBehavior: "smooth" }}
       suppressHydrationWarning
