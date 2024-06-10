@@ -101,6 +101,7 @@ const Avatar: FC<AvatarProps> = ({ darkMode, url, size, onUpload }) => {
           id="single"
           type="file"
           accept="image/*"
+          onChange={uploadAvatar}
           disabled={uploading}
         />
       </div>
