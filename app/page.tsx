@@ -33,6 +33,8 @@ const App: FC = () => {
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [showViewTaskModal, setShowViewTaskModal] = useState(false);
   const [showAccountModal, setShowAccountModal] = useState(false);
+  const [placeholderData, setPlaceholderData] = useState(data);
+  const [currentBoardData, setCurrentBoardData] = useState(placeholderData[0]);
 
   // get supabase session
   useEffect(() => {
