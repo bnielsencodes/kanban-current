@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 import Image from "next/image";
 import logoLight from "../../../public/assets/logo-light.svg";
@@ -5,7 +6,23 @@ import logoDark from "../../../public/assets/logo-dark.svg";
 
 export default function Auth({ darkMode }: { darkMode: boolean }) {
   const supabase = createClient();
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+
+  const handleLogin = async (event: any) => {
+    event.preventDefault();
+
+    setLoading(true);
+    const { error } = await supabase.auth.signInWithOtp({ email });
+
     if (error) {
+      alert(error.message);
+    } else {
+      alert("Check your email for the login link!");
+    }
+    setLoading(false);
+  };
+
   return (
     <div
       className={clsx(
