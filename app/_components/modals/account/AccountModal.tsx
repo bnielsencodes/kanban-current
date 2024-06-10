@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
+import { createClient } from "@/utils/supabase/client";
 import clsx from "clsx";
 
 interface AccountModalProps {
@@ -14,6 +15,7 @@ const AccountModal: FC<AccountModalProps> = ({
   showAccountModal,
   setShowAccountModal,
 }) => {
+  const supabase = createClient();
   const [loading, setLoading] = useState<boolean>(true);
   const [full_name, setFullname] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
