@@ -1,6 +1,7 @@
 "use client";
 import React, { FC, useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
+import Auth from "./_components/login/Auth";
 import ViewTaskModal from "./_components/modals/view-task/ViewTaskModal";
 
 interface Session {
@@ -53,8 +54,14 @@ const App: FC = () => {
         darkMode ? "bg-background-dark" : "bg-background-light",
       )}
     >
+      {!session ? (
+        <Auth {...{ darkMode }} />
+      ) : (
+        <>
 
           >
+        </>
+      )}
     </div>
   );
 };
