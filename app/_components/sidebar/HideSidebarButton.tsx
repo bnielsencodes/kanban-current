@@ -1,3 +1,4 @@
+import HideSidebarSvg from "./HideSidebarSvg";
 import clsx from "clsx";
 
 export default function HideSidebarButton({
@@ -19,6 +20,8 @@ export default function HideSidebarButton({
       )}
       onClick={handleToggleSidebar}
     >
+      <HideSidebarSvg />
+
       <p
         className={clsx(
           showSidebar
