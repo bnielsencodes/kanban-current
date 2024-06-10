@@ -1,5 +1,7 @@
 import BoardsList from "../controls/boards/BoardsList";
 import CreateBoardButton from "../controls/boards/CreateBoardButton";
+import ProfileControls from "../controls/user/ProfileControls";
+import HideSidebarButton from "./HideSidebarButton";
 import clsx from "clsx";
 
 export default function Sidebar({
@@ -92,6 +94,22 @@ export default function Sidebar({
             setShowBoardsModal,
             setShowAddBoardModal,
           }}
+        />
+      </div>
+
+      <div className="flex flex-col justify-center gap-2 pb-8">
+        <ProfileControls
+          {...{
+            session,
+            darkMode,
+            handleToggleTheme,
+            setShowBoardsModal,
+            setShowAccountModal,
+            showSidebar,
+          }}
+        />
+        <HideSidebarButton
+          {...{ darkMode, handleToggleSidebar, showSidebar }}
         />
       </div>
     </div>
