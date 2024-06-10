@@ -1,4 +1,7 @@
 import React, { FC } from "react";
+import BoardsList from "../../controls/boards/BoardsList";
+import CreateBoardButton from "../../controls/boards/CreateBoardButton";
+import ProfileControls from "../../controls/user/ProfileControls";
 import clsx from "clsx";
 
 const BoardsModal = ({
@@ -85,6 +88,32 @@ const BoardsModal = ({
             : "invisible -translate-y-2/4 opacity-0",
         )}
       >
+        <BoardsList
+          {...{
+            darkMode,
+            placeholderData,
+            setPlaceholderData,
+            currentBoardData,
+            setCurrentBoardData,
+          }}
+        />
+        <CreateBoardButton
+          {...{
+            setShowBoardsModal,
+            setShowAddBoardModal,
+          }}
+        />
+
+        <ProfileControls
+          {...{
+            session,
+            darkMode,
+            handleToggleTheme,
+            setShowBoardsModal,
+            setShowAccountModal,
+            showSidebar,
+          }}
+        />
       </div>
     </div>
   );
