@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
+import Avatar from "./Avatar";
 import clsx from "clsx";
 
 interface AccountModalProps {
@@ -105,6 +106,14 @@ const AccountModal: FC<AccountModalProps> = ({
           onSubmit={(e) => updateProfile(e, avatar_url || "")}
           noValidate
         >
+          <Avatar
+            {...{ darkMode }}
+            url={avatar_url || ""}
+            size={150}
+            onUpload={(event, url) => {
+              updateProfile(event, url);
+            }}
+          />
           <div className="mt-5 flex flex-col gap-2">
             <label
               className={clsx(
