@@ -6,10 +6,76 @@ import Image from "next/image";
 import logoMobile from "/public/assets/logo-mobile.svg";
 
 export default function Header({
+  session,
   darkMode,
+  handleToggleTheme,
+  placeholderData,
+  setPlaceholderData,
+  currentBoardData,
+  setCurrentBoardData,
+  showBoardsModal,
+  setShowBoardsModal,
+  setShowAddBoardModal,
+  showEditBoardModal,
+  setShowEditBoardModal,
+  showDeleteBoardModal,
+  setShowDeleteBoardModal,
+  setShowAccountModal,
+  setShowAddTaskModal,
   showSidebar,
 }: {
+  session: any;
   darkMode: boolean;
+  handleToggleTheme: () => void;
+  placeholderData: {
+    id: number;
+    name: string;
+    columns: {
+      id: number;
+      name: string;
+      tasks: {
+        id: number;
+        title: string;
+        description: string;
+        status: string;
+        subtasks: {
+          id: number;
+          title: string;
+          isCompleted: boolean;
+        }[];
+      }[];
+    }[];
+  }[];
+  setPlaceholderData: React.Dispatch<React.SetStateAction<any>>;
+  currentBoardData: {
+    id: number;
+    name: string;
+    columns: {
+      id: number;
+      name: string;
+      tasks: {
+        id: number;
+        title: string;
+        description: string;
+        status: string;
+        subtasks: {
+          id: number;
+          title: string;
+          isCompleted: boolean;
+        }[];
+      }[];
+    }[];
+  };
+  setCurrentBoardData: React.Dispatch<React.SetStateAction<any>>;
+  showBoardsModal: boolean;
+  setShowBoardsModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowAddBoardModal: React.Dispatch<React.SetStateAction<boolean>>;
+  showEditBoardModal: boolean;
+  setShowEditBoardModal: React.Dispatch<React.SetStateAction<boolean>>;
+  showDeleteBoardModal: boolean;
+  setShowDeleteBoardModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowAccountModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowAddTaskModal: React.Dispatch<React.SetStateAction<boolean>>;
   showSidebar: boolean;
 }) {
   return (
