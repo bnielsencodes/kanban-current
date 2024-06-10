@@ -65,6 +65,14 @@ export default function BoardSelectDropdown({
   setCurrentBoardData: React.Dispatch<React.SetStateAction<any>>;
   showSidebar: boolean;
 }) {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    if (event.target.checked) {
+      setShowBoardsModal(true);
+    } else {
+      setShowBoardsModal(false);
+    }
+  };
+
   return (
     <div className="group relative flex cursor-pointer items-center md:hidden">
       <input
