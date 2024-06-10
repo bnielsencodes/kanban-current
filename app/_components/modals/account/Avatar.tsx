@@ -15,6 +15,21 @@ const Avatar: FC<AvatarProps> = ({ darkMode, url, size, onUpload }) => {
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [uploading, setUploading] = useState<boolean>(false);
 
+  async function downloadImage(path: string) {
+    try {
+      const { data, error } = await supabase.storage
+        .from("avatars")
+        .download(path);
+      if (error) {
+        throw error;
+      }
+      const url = URL.createObjectURL(data);
+      setAvatarUrl(url);
+    } catch (error) {
+      console.log("Error downloading image");
+    }
+  }
+
   return (
     <div className="flex items-center gap-4">
       {avatarUrl ? (
