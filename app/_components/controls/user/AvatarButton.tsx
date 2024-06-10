@@ -17,9 +17,15 @@ const AvatarButton: FC<AccountPage> = ({
   const [avatar_url, setAvatarUrl] = useState<string | null>(null);
   const [avatarUrl, setAvatarUrl2] = useState<string | null>(null);
 
+  const handleClick = () => {
+    setShowBoardsModal(false);
+    setShowAccountModal(true);
+  };
+
   return (
     <div
       className="group/button lg:hover:bg-secondary flex h-full w-[50px] items-center justify-center gap-6 rounded-r-md transition-colors hover:cursor-pointer"
+      onClick={handleClick}
     >
       {avatarUrl ? (
         <Image
