@@ -73,6 +73,7 @@ const BoardsModal = ({
     >
       <div
         className="absolute -top-[85px] bottom-0 left-0 right-0 bg-overlay"
+        onClick={() => setShowBoardsModal(false)}
       ></div>
 
       <div
