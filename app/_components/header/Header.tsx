@@ -1,4 +1,7 @@
 import Logo from "./Logo";
+import Image from "next/image";
+import logoMobile from "/public/assets/logo-mobile.svg";
+
 export default function Header({
   darkMode,
   showSidebar,
@@ -17,6 +20,28 @@ export default function Header({
       )}
     >
       <Logo {...{ darkMode, showSidebar }} />
+
+      <div
+        className={clsx(
+          "flex w-full items-center justify-between md:h-full md:pl-6 md:pr-1 lg:pb-2 lg:pr-3",
+          darkMode
+            ? "bg-grey-dark md:border-lines-dark"
+            : "bg-white md:border-lines-light",
+          showSidebar ? "md:border-b-[1px]" : "md:border-b-0",
+        )}
+      >
+        <div className="flex items-center md:hidden">
+          {/* mobile logo */}
+          <Image
+            className="mr-4 h-[25px] w-6"
+            src={logoMobile}
+            alt="Kanban site logo"
+            width="0"
+            height="0"
+            sizes="100vw"
+          />
+        </div>
+      </div>
     </header>
   );
 }
