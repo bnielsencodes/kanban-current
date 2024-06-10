@@ -30,6 +30,39 @@ const Avatar: FC<AvatarProps> = ({ darkMode, url, size, onUpload }) => {
     }
   }
 
+  async function uploadAvatar(event: ChangeEvent<HTMLInputElement>) {
+    try {
+      setUploading(true);
+
+      if (!event.target.files || event.target.files.length === 0) {
+        throw new Error("You must select an image to upload.");
+      }
+
+      const file = event.target.files[0];
+      const fileExt = file.name.split(".").pop();
+      const fileName = `${Math.random()}.${fileExt}`;
+      const filePath = `${fileName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("avatars")
+        .upload(filePath, file);
+
+      if (uploadError) {
+        throw uploadError;
+      }
+
+      onUpload(event, filePath);
+    } catch (error) {
+      let errorMessage = "Failed to upload image";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      alert(errorMessage);
+    } finally {
+      setUploading(false);
+    }
+  }
+
   return (
     <div className="flex items-center gap-4">
       {avatarUrl ? (
