@@ -1,8 +1,11 @@
+import { createClient } from "@/utils/supabase/client";
 import Image from "next/image";
 import logoLight from "../../../public/assets/logo-light.svg";
 import logoDark from "../../../public/assets/logo-dark.svg";
 
 export default function Auth({ darkMode }: { darkMode: boolean }) {
+  const supabase = createClient();
+    if (error) {
   return (
     <div
       className={clsx(
