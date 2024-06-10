@@ -50,6 +50,10 @@ export default function BoardsList({
   setCurrentBoardData: React.Dispatch<React.SetStateAction<any>>;
 }) {
   const boardsListItems = placeholderData.map((board) => {
+    function handleClick() {
+      setCurrentBoardData(data[board.id - 1]);
+    }
+
     return (
       <li
         className={clsx(
@@ -61,6 +65,7 @@ export default function BoardsList({
               : "bg-primary",
         )}
         key={board.id}
+        onClick={handleClick}
       >
         <svg
           className="mr-3"
