@@ -1,3 +1,5 @@
+import EmptyBoard from "./EmptyBoard";
+
 export default function CurrentBoard({
   darkMode,
   currentBoardData,
@@ -29,6 +31,10 @@ export default function CurrentBoard({
 }) {
   return (
     <>
+      {currentBoardData.columns.length > 0 ? (
+      ) : (
+        <EmptyBoard {...{ setShowEditBoardModal }} />
+      )}
     </>
   );
 }
