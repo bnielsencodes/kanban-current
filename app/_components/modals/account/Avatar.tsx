@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState, ChangeEvent } from "react";
+import { createClient } from "@/utils/supabase/client";
 import Image from "next/image";
 import clsx from "clsx";
 
@@ -10,6 +11,7 @@ interface AvatarProps {
 }
 
 const Avatar: FC<AvatarProps> = ({ darkMode, url, size, onUpload }) => {
+  const supabase = createClient();
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [uploading, setUploading] = useState<boolean>(false);
 
