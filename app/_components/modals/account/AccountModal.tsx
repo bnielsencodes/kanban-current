@@ -21,6 +21,38 @@ const AccountModal: FC<AccountModalProps> = ({
   const [username, setUsername] = useState<string | null>(null);
   const [avatar_url, setAvatarUrl] = useState<string | null>(null);
 
+  useEffect(() => {
+    let ignore = false;
+    async function getProfile() {
+      setLoading(true);
+      const { user } = session;
+
+      const { data, error } = await supabase
+        .from("profiles")
+        .select(`full_name, username, avatar_url`)
+        .eq("id", user.id)
+        .single();
+
+      if (!ignore) {
+        if (error) {
+          console.warn(error);
+        } else if (data) {
+          setFullname(data.full_name);
+          setUsername(data.username);
+          setAvatarUrl(data.avatar_url);
+        }
+      }
+
+      setLoading(false);
+    }
+
+    getProfile();
+
+    return () => {
+      ignore = true;
+    };
+  }, [session]);
+
   async function updateProfile(
     event:
       | React.ChangeEvent<HTMLInputElement>
