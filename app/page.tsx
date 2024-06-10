@@ -3,6 +3,7 @@ import React, { FC, useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
 import Auth from "./_components/login/Auth";
 import Header from "./_components/header/Header";
+import AddBoardModal from "./_components/modals/add-board/AddBoardModal";
 import ViewTaskModal from "./_components/modals/view-task/ViewTaskModal";
 import AccountModal from "./_components/modals/account/AccountModal";
 
@@ -102,6 +103,20 @@ const App: FC = () => {
               darkMode ? "bg-background-dark" : "bg-background-light"
             }`}
           >
+            {/* Add Board Modal */}
+            {showAddBoardModal && (
+              <AddBoardModal
+                {...{
+                  darkMode,
+                  placeholderData,
+                  setPlaceholderData,
+                  // boardCount,
+                  // setBoardCount,
+                  setShowAddBoardModal,
+                }}
+              />
+            )}
+
             {/* Add Task Modal */}
             {showAddTaskModal && (
               <AddTaskModal
