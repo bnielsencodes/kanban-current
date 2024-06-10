@@ -1,3 +1,4 @@
+import Logo from "./Logo";
 export default function Header({
   darkMode,
   showSidebar,
@@ -15,6 +16,7 @@ export default function Header({
         showSidebar ? "border-b-0" : "md:border-b-[1px]",
       )}
     >
+      <Logo {...{ darkMode, showSidebar }} />
     </header>
   );
 }
