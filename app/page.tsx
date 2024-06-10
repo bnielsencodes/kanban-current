@@ -8,6 +8,7 @@ import CurrentBoard from "./_components/taskboard/states/CurrentBoard";
 import NoBoards from "./_components/taskboard/states/NoBoards";
 import AddBoardModal from "./_components/modals/add-board/AddBoardModal";
 import ViewTaskModal from "./_components/modals/view-task/ViewTaskModal";
+import AddTaskModal from "./_components/modals/view-task/ViewTaskModal";
 import AccountModal from "./_components/modals/account/AccountModal";
 import Sidebar from "./_components/sidebar/Sidebar";
 import ShowSidebarButton from "./_components/sidebar/ShowSidebarButton";
