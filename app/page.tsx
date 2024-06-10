@@ -36,6 +36,8 @@ const App: FC = () => {
   }, []);
 
 
+  // toggle dark mode
+  const handleToggleTheme = () => setDarkMode((prevMode) => !prevMode);
 
   useEffect(() => {
     setMounted(true);
