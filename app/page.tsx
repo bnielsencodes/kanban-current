@@ -15,6 +15,14 @@ const App: FC = () => {
   const [session, setSession] = useState<Session | null>(null);
   const [darkMode, setDarkMode] = useState(true);
   const [mounted, setMounted] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [showBoardsModal, setShowBoardsModal] = useState(false);
+  const [showAddBoardModal, setShowAddBoardModal] = useState(false);
+  const [showEditBoardModal, setShowEditBoardModal] = useState(false);
+  const [showDeleteBoardModal, setShowDeleteBoardModal] = useState(false);
+  const [showAddTaskModal, setShowAddTaskModal] = useState(false);
+  const [showViewTaskModal, setShowViewTaskModal] = useState(false);
+  const [showAccountModal, setShowAccountModal] = useState(false);
 
   // get supabase session
   useEffect(() => {
