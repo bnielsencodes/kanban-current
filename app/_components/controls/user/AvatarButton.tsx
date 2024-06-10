@@ -17,6 +17,21 @@ const AvatarButton: FC<AccountPage> = ({
   const [avatar_url, setAvatarUrl] = useState<string | null>(null);
   const [avatarUrl, setAvatarUrl2] = useState<string | null>(null);
 
+  async function downloadImage(path: string) {
+    try {
+      const { data, error } = await supabase.storage
+        .from("avatars")
+        .download(path);
+      if (error) {
+        throw error;
+      }
+      const url = URL.createObjectURL(data);
+      setAvatarUrl2(url);
+    } catch (error) {
+      console.log("Error downloading image");
+    }
+  }
+
   const handleClick = () => {
     setShowBoardsModal(false);
     setShowAccountModal(true);
