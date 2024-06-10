@@ -1,6 +1,7 @@
 "use client";
 import React, { FC, useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
+import data from "./data";
 import Auth from "./_components/login/Auth";
 import Header from "./_components/header/Header";
 import CurrentBoard from "./_components/taskboard/states/CurrentBoard";
