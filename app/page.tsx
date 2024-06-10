@@ -2,6 +2,7 @@
 import React, { FC, useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
 import Auth from "./_components/login/Auth";
+import Header from "./_components/header/Header";
 import ViewTaskModal from "./_components/modals/view-task/ViewTaskModal";
 
 interface Session {
@@ -71,6 +72,29 @@ const App: FC = () => {
         <Auth {...{ darkMode }} />
       ) : (
         <>
+          <Header
+            {...{
+              session,
+              darkMode,
+              handleToggleTheme,
+              placeholderData,
+              setPlaceholderData,
+              currentBoardData,
+              setCurrentBoardData,
+              showBoardsModal,
+              setShowBoardsModal,
+              setShowAddBoardModal,
+              showEditBoardModal,
+              setShowEditBoardModal,
+              showDeleteBoardModal,
+              setShowDeleteBoardModal,
+              setShowAccountModal,
+              setShowAddTaskModal,
+              showSidebar,
+              handleSaveBoard,
+              handleRemoveBoard,
+            }}
+          />
 
           >
         </>
