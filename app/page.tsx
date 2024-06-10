@@ -96,7 +96,12 @@ const App: FC = () => {
             }}
           />
 
+          <main
+            className={`main h-full w-full md:flex md:items-start md:justify-center ${
+              darkMode ? "bg-background-dark" : "bg-background-light"
+            }`}
           >
+          </main>
         </>
       )}
     </div>
