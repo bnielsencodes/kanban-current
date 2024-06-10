@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Logo from "./Logo";
 import BoardSelectDropdown from "./BoardSelectDropdown";
 import AddTaskButton from "./AddTaskButton";
@@ -78,6 +79,8 @@ export default function Header({
   setShowAddTaskModal: React.Dispatch<React.SetStateAction<boolean>>;
   showSidebar: boolean;
 }) {
+  const [showEditDeleteBoardModal, setShowEditDeleteBoardModal] =
+    useState(false);
   return (
     <header
       className={clsx(
