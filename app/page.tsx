@@ -6,6 +6,7 @@ import Header from "./_components/header/Header";
 import AddBoardModal from "./_components/modals/add-board/AddBoardModal";
 import ViewTaskModal from "./_components/modals/view-task/ViewTaskModal";
 import AccountModal from "./_components/modals/account/AccountModal";
+import Sidebar from "./_components/sidebar/Sidebar";
 
 interface Session {
   user: {
@@ -103,6 +104,23 @@ const App: FC = () => {
               darkMode ? "bg-background-dark" : "bg-background-light"
             }`}
           >
+            <Sidebar
+              {...{
+                session,
+                darkMode,
+                showSidebar,
+                handleToggleTheme,
+                handleToggleSidebar,
+                placeholderData,
+                setPlaceholderData,
+                currentBoardData,
+                setCurrentBoardData,
+                setShowBoardsModal,
+                setShowAddBoardModal,
+                setShowAccountModal,
+              }}
+            />
+
             {/* Add Board Modal */}
             {showAddBoardModal && (
               <AddBoardModal
