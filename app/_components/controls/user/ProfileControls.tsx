@@ -2,6 +2,8 @@ import React, { FC } from "react";
 import Image from "next/image";
 import iconLight from "/public/assets/icon-light-theme.svg";
 import iconDark from "/public/assets/icon-dark-theme.svg";
+import ThemeToggle from "./ThemeToggle";
+import AvatarButton from "./AvatarButton";
 import clsx from "clsx";
 
 interface ProfileControlsProps {
@@ -41,6 +43,12 @@ const ProfileControls: FC<ProfileControlsProps> = ({
           height="19"
           sizes="100vw"
         />
+        <ThemeToggle
+          {...{
+            darkMode,
+            handleToggleTheme,
+          }}
+        />
         <Image
           src={iconDark}
           alt="moon and star icon"
@@ -49,6 +57,7 @@ const ProfileControls: FC<ProfileControlsProps> = ({
           sizes="100vw"
         />
       </div>
+      <AvatarButton {...{ session, setShowBoardsModal, setShowAccountModal }} />
     </div>
   );
 };
