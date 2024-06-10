@@ -1,4 +1,6 @@
 import Logo from "./Logo";
+import AddTaskButton from "./AddTaskButton";
+import EditDeleteBoardButton from "./EditDeleteBoardButton";
 import Image from "next/image";
 import logoMobile from "/public/assets/logo-mobile.svg";
 
@@ -41,6 +43,7 @@ export default function Header({
             sizes="100vw"
           />
 
+        </div>
         {/* tablet/desktop board title */}
         <p
           className={clsx(
@@ -50,6 +53,10 @@ export default function Header({
         >
           {currentBoardData.name}
         </p>
+
+        <div className="flex items-center">
+          <AddTaskButton {...{ setShowAddTaskModal, numOfColumns }} />
+          <EditDeleteBoardButton {...{ setShowEditDeleteBoardModal }} />
         </div>
       </div>
     </header>
