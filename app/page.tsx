@@ -4,6 +4,7 @@ import { createClient } from "@/utils/supabase/client";
 import Auth from "./_components/login/Auth";
 import Header from "./_components/header/Header";
 import ViewTaskModal from "./_components/modals/view-task/ViewTaskModal";
+import AccountModal from "./_components/modals/account/AccountModal";
 
 interface Session {
   user: {
@@ -101,6 +102,17 @@ const App: FC = () => {
               darkMode ? "bg-background-dark" : "bg-background-light"
             }`}
           >
+            {/* Account Modal */}
+            {showAccountModal && (
+              <AccountModal
+                {...{
+                  session,
+                  darkMode,
+                  showAccountModal,
+                  setShowAccountModal,
+                }}
+              />
+            )}
           </main>
         </>
       )}
