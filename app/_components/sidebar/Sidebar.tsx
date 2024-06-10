@@ -1,3 +1,5 @@
+import BoardsList from "../controls/boards/BoardsList";
+import CreateBoardButton from "../controls/boards/CreateBoardButton";
 import clsx from "clsx";
 
 export default function Sidebar({
@@ -75,6 +77,23 @@ export default function Sidebar({
           : "opacity-0 md:ml-[-261px] lg:ml-[-300px]",
       )}
     >
+      <div>
+        <BoardsList
+          {...{
+            darkMode,
+            placeholderData,
+            setPlaceholderData,
+            currentBoardData,
+            setCurrentBoardData,
+          }}
+        />
+        <CreateBoardButton
+          {...{
+            setShowBoardsModal,
+            setShowAddBoardModal,
+          }}
+        />
+      </div>
     </div>
   );
 }
