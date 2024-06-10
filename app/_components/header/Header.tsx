@@ -40,6 +40,16 @@ export default function Header({
             height="0"
             sizes="100vw"
           />
+
+        {/* tablet/desktop board title */}
+        <p
+          className={clsx(
+            "hidden items-center font-sans font-semibold tracking-wide group-hover:cursor-pointer md:block md:text-[20px] lg:text-[24px]",
+            darkMode ? "text-white" : "text-black",
+          )}
+        >
+          {currentBoardData.name}
+        </p>
         </div>
       </div>
     </header>
