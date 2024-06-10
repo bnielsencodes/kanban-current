@@ -1,3 +1,4 @@
+import Task from "./Task";
 import clsx from "clsx";
 
 export default function Column({
@@ -34,5 +35,15 @@ export default function Column({
           <span className="text-grey-medium">&#x29;</span>
         </span>
       </p>
+
+      {/* tasklist */}
+      {column.tasks.map((task) => {
+        return (
+          <ul className="flex flex-col gap-y-5 pt-[22px]">
+            <Task key={task.id} {...{ task, darkMode, setShowViewTaskModal }} />
+          </ul>
+        );
+      })}
+    </div>
   );
 }
