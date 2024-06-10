@@ -100,6 +100,106 @@ const AccountModal: FC<AccountModalProps> = ({
           darkMode ? "bg-grey-dark text-white" : "bg-white text-grey-dark",
         )}
       >
+        <form
+          className="flex flex-col"
+          onSubmit={(e) => updateProfile(e, avatar_url || "")}
+          noValidate
+        >
+          <div className="mt-5 flex flex-col gap-2">
+            <label
+              className={clsx(
+                "text-[12px]",
+                darkMode ? "text-white" : "text-grey-medium",
+              )}
+              htmlFor="email"
+            >
+              Email<span className="ml-[2px]">&#42;</span>
+            </label>
+            <input
+              className={clsx(
+                "h-10 w-full rounded border-[1px] border-input pl-4 text-[13px] leading-[23px] duration-300",
+                darkMode
+                  ? "bg-grey-dark placeholder-light"
+                  : "bg-white placeholder-dark",
+              )}
+              id="email"
+              type="text"
+              value={session.user.email}
+              disabled
+            />
+          </div>
+          <div className="mt-5 flex flex-col gap-2">
+            <label
+              className={clsx(
+                "text-[12px]",
+                darkMode ? "text-white" : "text-grey-medium",
+              )}
+              htmlFor="fullname"
+            >
+              Full Name
+            </label>
+            <input
+              className={clsx(
+                "h-10 w-full rounded border-[1px] border-input pl-4  text-[13px] leading-[23px] duration-300 focus:border-[1px] focus:border-primary focus:outline-none focus:ring-0 lg:cursor-pointer lg:hover:border-primary",
+                darkMode
+                  ? "bg-grey-dark placeholder-light"
+                  : "bg-white text-black placeholder-dark",
+              )}
+              id="fullname"
+              onChange={(e) => setFullname(e.target.value)}
+              value={full_name || ""}
+              type="text"
+            />
+          </div>
+          <div className="relative mt-5 flex flex-col gap-2">
+            <label
+              className={clsx(
+                "text-[12px]",
+                darkMode ? "text-white" : "text-grey-medium",
+              )}
+              htmlFor="username"
+            >
+              Username<span className="ml-[2px]">&#42;</span>
+            </label>
+            <input
+              className={clsx(
+                "peer h-10 w-full appearance-none rounded border-[1px] border-input  pl-4 text-[13px] leading-[23px] duration-300 focus:border-[1px] focus:border-primary focus:outline-none focus:ring-0 lg:cursor-pointer lg:hover:border-primary invalid:[&:not(:placeholder-shown):not(:focus)]:border-warning",
+                darkMode
+                  ? "bg-grey-dark placeholder-light"
+                  : "bg-white text-black placeholder-dark",
+              )}
+              id="username"
+              onChange={(e) => setUsername(e.target.value)}
+              value={username || ""}
+              type="text"
+              required
+            />
+            <span className="absolute bottom-[10px] right-4 hidden text-sm text-warning peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+              Can&apos;t be empty
+            </span>
+          </div>
+
+          <button
+            className="mt-6 block h-12 w-full rounded-3xl border-0 bg-primary duration-300 focus:border-[1px] focus:border-primary-hover focus:outline-none focus:ring-0 lg:hover:bg-primary-hover"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "Loading ..." : "Update"}
+          </button>
+
+          <button
+            className={clsx(
+              "mt-6 block h-12 w-full rounded-3xl border-0 text-primary duration-300 focus:border-[1px] focus:border-primary-hover focus:outline-none focus:ring-0",
+              darkMode
+                ? "bg-white lg:hover:bg-opacity-80"
+                : "bg-secondary lg:hover:bg-primary lg:hover:bg-opacity-25",
+            )}
+            type="button"
+            onClick={() => supabase.auth.signOut()}
+          >
+            Sign Out
+          </button>
+        </form>
       </div>
     </div>
   );
