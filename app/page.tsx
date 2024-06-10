@@ -9,6 +9,7 @@ import AddBoardModal from "./_components/modals/add-board/AddBoardModal";
 import ViewTaskModal from "./_components/modals/view-task/ViewTaskModal";
 import AccountModal from "./_components/modals/account/AccountModal";
 import Sidebar from "./_components/sidebar/Sidebar";
+import ShowSidebarButton from "./_components/sidebar/ShowSidebarButton";
 
 interface Session {
   user: {
@@ -134,6 +135,10 @@ const App: FC = () => {
               />
             ) : (
               <NoBoards {...{ setShowAddBoardModal }} />
+            )}
+
+            {!showSidebar && (
+              <ShowSidebarButton {...{ handleToggleSidebar, showSidebar }} />
             )}
 
             {/* Add Board Modal */}
