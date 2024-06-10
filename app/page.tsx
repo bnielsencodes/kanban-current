@@ -102,6 +102,23 @@ const App: FC = () => {
               darkMode ? "bg-background-dark" : "bg-background-light"
             }`}
           >
+            {/* View Task Modal */}
+            {showViewTaskModal && (
+              <ViewTaskModal
+                {
+                  ...{
+                    // setShowViewTaskModal,
+                    // darkMode,
+                    // placeholderData,
+                    // setPlaceholderData,
+                    // boardCount,
+                    // setBoardCount,
+                    // setShowAddBoardModal,
+                  }
+                }
+              />
+            )}
+
             {/* Account Modal */}
             {showAccountModal && (
               <AccountModal
