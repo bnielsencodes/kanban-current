@@ -10,6 +10,7 @@ import ViewTaskModal from "./_components/modals/view-task/ViewTaskModal";
 import AccountModal from "./_components/modals/account/AccountModal";
 import Sidebar from "./_components/sidebar/Sidebar";
 import ShowSidebarButton from "./_components/sidebar/ShowSidebarButton";
+import clsx from "clsx";
 
 interface Session {
   user: {
