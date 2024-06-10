@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
+import { createClient } from "@/utils/supabase/client";
 import Image from "next/image";
 
 interface AccountPage {
@@ -8,9 +9,11 @@ interface AccountPage {
 }
 
 const AvatarButton: FC<AccountPage> = ({
+  session,
   setShowBoardsModal,
   setShowAccountModal,
 }) => {
+  const supabase = createClient();
   const [avatar_url, setAvatarUrl] = useState<string | null>(null);
   const [avatarUrl, setAvatarUrl2] = useState<string | null>(null);
 
