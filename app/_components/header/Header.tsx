@@ -1,4 +1,5 @@
 import Logo from "./Logo";
+import BoardSelectDropdown from "./BoardSelectDropdown";
 import AddTaskButton from "./AddTaskButton";
 import EditDeleteBoardButton from "./EditDeleteBoardButton";
 import Image from "next/image";
@@ -43,7 +44,24 @@ export default function Header({
             sizes="100vw"
           />
 
+          <BoardSelectDropdown
+            {...{
+              session,
+              darkMode,
+              handleToggleTheme,
+              placeholderData,
+              setPlaceholderData,
+              showBoardsModal,
+              setShowBoardsModal,
+              setShowAddBoardModal,
+              setShowAccountModal,
+              currentBoardData,
+              setCurrentBoardData,
+              showSidebar,
+            }}
+          />
         </div>
+
         {/* tablet/desktop board title */}
         <p
           className={clsx(
