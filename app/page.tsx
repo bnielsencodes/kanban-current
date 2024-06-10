@@ -3,6 +3,8 @@ import React, { FC, useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
 import Auth from "./_components/login/Auth";
 import Header from "./_components/header/Header";
+import CurrentBoard from "./_components/taskboard/states/CurrentBoard";
+import NoBoards from "./_components/taskboard/states/NoBoards";
 import AddBoardModal from "./_components/modals/add-board/AddBoardModal";
 import ViewTaskModal from "./_components/modals/view-task/ViewTaskModal";
 import AccountModal from "./_components/modals/account/AccountModal";
@@ -120,6 +122,19 @@ const App: FC = () => {
                 setShowAccountModal,
               }}
             />
+
+            {placeholderData.length > 0 ? (
+              <CurrentBoard
+                {...{
+                  darkMode,
+                  currentBoardData,
+                  setShowEditBoardModal,
+                  setShowViewTaskModal,
+                }}
+              />
+            ) : (
+              <NoBoards {...{ setShowAddBoardModal }} />
+            )}
 
             {/* Add Board Modal */}
             {showAddBoardModal && (
