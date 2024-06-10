@@ -21,6 +21,35 @@ const AccountModal: FC<AccountModalProps> = ({
   const [username, setUsername] = useState<string | null>(null);
   const [avatar_url, setAvatarUrl] = useState<string | null>(null);
 
+  async function updateProfile(
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.FormEvent<HTMLFormElement>,
+    avatarUrl: string,
+  ) {
+    event.preventDefault();
+
+    setLoading(true);
+    const { user } = session;
+
+    const updates = {
+      id: user.id,
+      full_name,
+      username,
+      avatar_url: avatarUrl,
+      updated_at: new Date(),
+    };
+
+    const { error } = await supabase.from("profiles").upsert(updates);
+
+    if (error) {
+      alert(error.message);
+    } else {
+      setAvatarUrl(avatarUrl);
+    }
+    setLoading(false);
+  }
+
   return (
     <div
       className={clsx(
