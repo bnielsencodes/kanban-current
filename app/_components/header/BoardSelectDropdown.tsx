@@ -1,6 +1,7 @@
 import Image from "next/image";
 import iconChevronUp from "/public/assets/icon-chevron-up.svg";
 import iconChevronDown from "/public/assets/icon-chevron-down.svg";
+import clsx from "clsx";
 
 export default function BoardSelectDropdown({
   session,
