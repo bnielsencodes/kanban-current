@@ -1,6 +1,7 @@
 import Image from "next/image";
 import iconChevronUp from "/public/assets/icon-chevron-up.svg";
 import iconChevronDown from "/public/assets/icon-chevron-down.svg";
+import MobileControlsModal from "../modals/mobile-controls/MobileControlsModal";
 import clsx from "clsx";
 
 export default function BoardSelectDropdown({
@@ -112,6 +113,23 @@ export default function BoardSelectDropdown({
           sizes="100vw"
         />
       )}
+
+      <MobileControlsModal
+        {...{
+          session,
+          darkMode,
+          handleToggleTheme,
+          placeholderData,
+          setPlaceholderData,
+          showBoardsModal,
+          setShowBoardsModal,
+          setShowAddBoardModal,
+          setShowAccountModal,
+          currentBoardData,
+          setCurrentBoardData,
+          showSidebar,
+        }}
+      />
     </div>
   );
 }
