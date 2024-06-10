@@ -91,6 +91,7 @@ const AccountModal: FC<AccountModalProps> = ({
     >
       <div
         className="absolute -top-[83px] bottom-0 left-0 right-0 bg-overlay"
+        onClick={() => setShowAccountModal(false)}
       ></div>
 
       <div
