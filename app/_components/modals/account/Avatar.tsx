@@ -15,6 +15,10 @@ const Avatar: FC<AvatarProps> = ({ darkMode, url, size, onUpload }) => {
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [uploading, setUploading] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (url) downloadImage(url);
+  }, [url]);
+
   async function downloadImage(path: string) {
     try {
       const { data, error } = await supabase.storage
